@@ -42,13 +42,7 @@ This guide has been tested with Structure SDK 0.12 and XCode 11.4.
 ```
 
 7. Select the project, tab 'Build Settings', group 'All'
-   - Search for 'Preprocessor Macros' and add the following flag to the Debug and Release:
-
-```
-   HAS_LIBCXX=1
-```
-
-   - Search for 'Preprocessor Macros' and add the following flag to the Debug and Release:
+   - Search for 'Preprocessor Macros' and add the following flag to the Debug and Release: 'HAS_LIBCXX=1'
    - Search for 'Enable Bitcode' and set to false for Debug and Release
   
 8. Now you should be able to build the project
