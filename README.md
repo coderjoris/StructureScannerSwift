@@ -48,6 +48,6 @@ This guide has been tested with Structure SDK 0.12 and XCode 11.4.
    HAS_LIBCXX=1
 ```
 
-  - Search for 'Enable Bitcode' and set to false for Debug and Release
+   - Search for 'Enable Bitcode' and set to false for Debug and Release
   
 8. Now you should be able to build the project
