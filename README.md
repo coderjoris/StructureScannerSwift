@@ -17,8 +17,10 @@ This guide has been tested with Structure SDK 0.12 and XCode 11.4.
      - Add the following frameworks (do not embed):
      
 ```
-   ExternalAccessory.framework
    Accelerate.framework
+   ExternalAccessory.framework
+   MessageUI.framework
+   OpenGLES.framework
 ```
 
 5. Open the Info.plist file
@@ -30,3 +32,18 @@ This guide has been tested with Structure SDK 0.12 and XCode 11.4.
    io.structure.depth
    io.structure.infrared
 ```
+
+6. Add a header file to the code folder, and in the popup windows name it 'Scanner-bridging-header', add to the App target and add the following lines:
+
+```
+   #import <Structure/Structure.h>
+   #import <OpenGLES/gltypes.h>
+   #import <MessageUI/MessageUI.h>
+```
+
+7. Select the project, tab 'Build Settings', search for 'Preprocessor Macros' and add the following flag to the Debug and Release:
+
+```
+   HAS_LIBCXX=1
+```
+
