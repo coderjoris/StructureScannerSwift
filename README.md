@@ -8,7 +8,7 @@ This guide has been tested with Structure SDK 0.12 and XCode 11.4.
    - Copy items if needed: checked
    - Create Groups
    - Add to App target
-3. In Project, tab 'Info', set the iOS deployment target to 10.0
+3. In Project, tab 'Info', set the iOS deployment target to 13.0 (required for working with scenes)
 4. Select the App target, tab 'General'
    - Select target device 'iPad' and 'landscape right' (unselect others)
    - Check 'Hide status bar during application lauch' and 'Requires full screen'
@@ -41,9 +41,13 @@ This guide has been tested with Structure SDK 0.12 and XCode 11.4.
    #import <MessageUI/MessageUI.h>
 ```
 
-7. Select the project, tab 'Build Settings', search for 'Preprocessor Macros' and add the following flag to the Debug and Release:
+7. Select the project, tab 'Build Settings', group 'All'
+   - Search for 'Preprocessor Macros' and add the following flag to the Debug and Release:
 
 ```
    HAS_LIBCXX=1
 ```
 
+  - Search for 'Enable Bitcode' and set to false for Debug and Release
+  
+8. Now you should be able to build the project
