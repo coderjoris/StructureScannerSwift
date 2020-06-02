@@ -14,10 +14,19 @@ This guide has been tested with Structure SDK 0.12 and XCode 11.4.
    - Check 'Hide status bar during application lauch' and 'Requires full screen'
    - Under 'Frameworks, Libraries and Embedded Content':
      - Choose 'Embed & Sign' for Structure.Framework
-     - Add the following frameworks:
+     - Add the following frameworks (do not embed):
      
 ```
    ExternalAccessory.framework
    Accelerate.framework
 ```
+
+5. Open the Info.plist file
+   - Add a line 'Supported external accessory protocols', it has one subrow by default
+   - Add two more subrows, and set the values to
    
+```
+   io.structure.control
+   io.structure.depth
+   io.structure.infrared
+```
