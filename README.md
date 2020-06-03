@@ -51,4 +51,11 @@ Now you should be able to build and run the project
 Setup unified logging. See [Apple WWDC video](https://developer.apple.com/videos/play/wwdc2016/721/) for more information. In the sample project, an `OSLog` extensions is provided with some predefined logging categories.
 
 ## Camera access
-Ask permission to use the camera in the `AppDelegate`.
+1. Add Swift code to check for permission to use the camera in the `AppDelegate`.
+2. In Info.plist, add a line `Privacy - Camera Usage Description` and set the value to `The app needs access to the camera for scanning.`
+
+## Main View
+The sample app has a main view with a button to open the scan view. This is to demonstrate how to close and re-open the scanview.
+
+1. Rename the file `ViewController` to `MainViewController` and likewise for the class name
+2. In the main storyboard, under the identity inspector, choose the controller class `MainViewController`
