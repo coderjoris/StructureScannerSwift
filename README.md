@@ -60,6 +60,8 @@ The sample app has a main view with a button to open the scan view. This is to d
 1. Rename the file `ViewController` to `MainViewController` and likewise for the class name
 2. In the main storyboard, under the identity inspector, choose the controller class `MainViewController`
 3. Add a button to the main view, for example 'New Scan'
-4. Add a second view controller to the storyboard and create a segue from the button to the second view. Name the segue 'NewScanSegue' and make the presentation `Full Screen`
-5. In the second view, create buttons for 'Scan', 'Restart' and 'Back'. Create an unwind segue from the 'Back' button to the first view. You'll have to create an `@IBAction` in the main view controller first, such as `unwindToHomeScreen` in the sample. 
+
+## Scan View
+1. Add a second view controller to the storyboard and create a segue from the 'New Scan' button to the second view. Name the segue 'NewScanSegue' and make the presentation `Full Screen`
+2. In the second view, create buttons for 'Scan', 'Restart' and 'Back'. Create an unwind segue from the 'Back' button to the first view. You'll have to create an `@IBAction` in the main view controller first, such as `unwindToHomeScreen` in the sample. Now you can switch to the second view and back to the main view using the buttons.
 
