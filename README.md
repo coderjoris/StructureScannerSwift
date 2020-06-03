@@ -44,6 +44,7 @@ This guide has been tested with Structure SDK 0.12 and XCode 11.4.
 7. Select the project, tab 'Build Settings', group 'All'
    - Search for 'Preprocessor Macros' and add the following flag to the Debug and Release: 'HAS_LIBCXX=1'
    - Search for 'Enable Bitcode' and set to false for Debug and Release
+   - Search for 'Objective-C Bridging Header' and enter the name of the bridging header.
   
 Now you should be able to build and run the project
 
