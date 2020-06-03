@@ -47,5 +47,8 @@ This guide has been tested with Structure SDK 0.12 and XCode 11.4.
   
 Now you should be able to build and run the project
 
+## Logging
+Setup unified logging. See [Apple WWDC video](https://developer.apple.com/videos/play/wwdc2016/721/) for more information. In the sample project, an `OSLog` extensions is provided with some predefined logging categories.
+
 ## Camera access
 Ask permission to use the camera in the `AppDelegate`.
