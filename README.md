@@ -52,7 +52,7 @@ Setup unified logging. See [Apple WWDC video](https://developer.apple.com/videos
 
 ## Camera access
 1. Add Swift code to check for permission to use the camera in the `AppDelegate`.
-2. In Info.plist, add a line `Privacy - Camera Usage Description` and set the value to `The app needs access to the camera for scanning.`
+2. In Info.plist, add a line `Privacy - Camera Usage Description` and set the value to 'The app needs access to the camera for scanning.'
 
 ## Main View
 The sample app has a main view with a button to open the scan view. This is to demonstrate how to close and re-open the scanview.
