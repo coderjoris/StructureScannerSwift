@@ -66,7 +66,8 @@ The sample app has a main view with a button to open the scan view. This is to d
 1. Add a second view controller to the storyboard and create a segue from the 'New Scan' button to the second view. Name the segue 'NewScanSegue' and make the presentation `Full Screen`. In the scene hierarchy, rename the View Controller to 'Scan View Controller'.
 2. In the scan view, create the following UI elements:
    - Buttons for 'Scan', 'Reset', 'Done' and 'Back'.
-   - Labels for 'App Status Message', 'Tracking Lost', 'Distance'
+   - Labels for 'App Status Message', 'Tracking Lost', 'Distance', 'Sensor Battery'
+   - An image for low sensor battery
    - Add a PinchGestureRecognizer
    - Create an unwind segue from the 'Back' button to the main view. You'll have to create an `@IBAction` in the main view controller first, such as `unwindToMainView` in the sample.
 3. Test the app. You should be able to switch from the main view to the scan view and back, using the buttons.
@@ -87,6 +88,9 @@ The sample app has a main view with a button to open the scan view. This is to d
   - Reset Button Touch Up Inside to `@IBAction func resetButtonPressed`
   - Back Button to `@IBOutlet weak var backButton`
   - Distance Label to `@IBOutlet weak var distanceLabel`
+  - Sensor Battery Label to `@IBOutlet weak var batteryLabel`
+  - Sensor Battery Image to `@IBOutlet weak var sensorBatteryLowImage`
+  
   
   
   
@@ -96,7 +100,8 @@ The sample app has a main view with a button to open the scan view. This is to d
 ## Mesh View
 1. Add a third view controller to the storyboard and create a segue from the Scan View Controller (via the ViewController button) to the new view. Name the segue 'ShowMeshSegue' and make the presentation `Full Screen`. In the scene hierarchy, rename the View Controller to 'Mesh View Controller'.
 2. In the merh view, create the following UI elements:
-   - Buttons for 'Accept', 'Reset' and 'Back'.
+   - Buttons for 'Accept', 'Reset' and 'Back'
+   - Label for 'Message'
    - Create an unwind segue from the 'Back' button to the scan view. You'll have to create an `@IBAction` in the scan view controller first, such as `unwindToScanView` in the sample.
    - Create an unwind segue from the 'Accept' button to the main view.
    
@@ -104,4 +109,8 @@ The sample app has a main view with a button to open the scan view. This is to d
 5. In the storyboard,
    - Select the mesh view controller and assign the 'MeshViewController' class in the identity inspector
    - Select the top View, rename it to 'Eview' and assign the EAGLView class in the identity inspector.
+6. Bind the following items to the controller class functions and fields:
+  - Eview to `@IBOutlet weak var eview`
+  - Message label to `@IBOutlet weak var meshViewerMessageLabel`
+
 
