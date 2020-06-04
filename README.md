@@ -66,7 +66,7 @@ The sample app has a main view with a button to open the scan view. This is to d
 1. Add a second view controller to the storyboard and create a segue from the 'New Scan' button to the second view. Name the segue 'NewScanSegue' and make the presentation `Full Screen`. In the scene hierarchy, rename the View Controller to 'Scan View Controller'.
 2. In the scan view, create the following UI elements:
    - Buttons for 'Scan', 'Restart' and 'Back'.
-   - Create an unwind segue from the 'Back' button to the main view. You'll have to create an `@IBAction` in the main view controller first, such as `unwindScanToMainView` in the sample.
+   - Create an unwind segue from the 'Back' button to the main view. You'll have to create an `@IBAction` in the main view controller first, such as `unwindToMainView` in the sample.
 3. Test the app. You should be able to switch from the main view to the scan view and back, using the buttons.
 4. Create a group called 'ScanView' in the project navigator. Copy the swift files under 'ScanView' from the project into it.
 5. In the storyboard, go the top View of the scan view controller and assign the EAGLView class in the identity inspector.
@@ -75,8 +75,8 @@ The sample app has a main view with a button to open the scan view. This is to d
 1. Add a third view controller to the storyboard and create a segue from the Scan View Controller (via the ViewController button) to the new view. Name the segue 'ShowMeshSegue' and make the presentation `Full Screen`. In the scene hierarchy, rename the View Controller to 'Mesh View Controller'.
 2. In the merh view, create the following UI elements:
    - Buttons for 'Accept', 'Reset' and 'Back'.
-   - Create an unwind segue from the 'Back' button to the scan view. You'll have to create an `@IBAction` in the scan view controller first, such as `unwindMeshToScanView` in the sample.
-- Create an unwind segue from the 'Accept' button to the main view. You'll have to create an `@IBAction` in the main view controller first, such as `unwindMeshToMainView` in the sample.
+   - Create an unwind segue from the 'Back' button to the scan view. You'll have to create an `@IBAction` in the scan view controller first, such as `unwindToScanView` in the sample.
+   - Create an unwind segue from the 'Accept' button to the main view.
    
 4. Create a group called 'MeshView' in the project navigator. Copy the swift files under 'MeshView' from the project into it.
 5. In the storyboard, go the top View of the scan view controller and assign the EAGLView class in the identity inspector.
