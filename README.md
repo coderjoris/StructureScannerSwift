@@ -69,7 +69,7 @@ The sample app has a main view with a button to open the scan view. This is to d
    - Labels for 'App Status Message', 'Tracking Lost', 'Distance', 'Sensor Battery'
    - An image for low sensor battery
    - Add a PinchGestureRecognizer
-   - Create an unwind segue from the 'Back' button to the main view. You'll have to create an `@IBAction` in the main view controller first, such as `unwindToMainView` in the sample.
+   - Create an unwind segue from the 'Back' button to the main view. You'll have to create an `@IBAction` in the main view controller first, such as `unwindToMainView` in the sample. Set the unwind segue identifier to 'unwindScanToMainView' 
 3. Test the app. You should be able to switch from the main view to the scan view and back, using the buttons.
 4. Create a group called 'ScanView' in the project navigator. Copy the swift files under 'ScanView' from the project into it.
 5. Select custom classes: in the storyboard,
