@@ -106,7 +106,7 @@ The sample app has a main view with a button to open the scan view. This is to d
    - Pinch Gesture Recognizer
    - Tap Gesture Recognizer
    - Create an unwind segue from the 'Back' button to the scan view. You'll have to create an `@IBAction` in the scan view controller first, such as `unwindToScanView` in the sample. Set the unwind segue identifier to 'unwindMeshToScanView'.
-   - Create an unwind segue from the 'Accept' button to the main view. Set the unwind segue identifier to 'unwindMeshToMainView' 
+   - Create an unwind segue from the 'Accept' button to the scan view (NOT to the main view - we have to pass through the scan view first to clean up the capture session etc.). Set the unwind segue identifier to 'unwindMeshToMainView' 
    
 4. Create a group called 'MeshView' in the project navigator. Copy the swift files under 'MeshView' from the project into it.
 5. In the storyboard,
