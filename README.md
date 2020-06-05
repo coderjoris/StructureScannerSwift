@@ -56,11 +56,17 @@ Setup unified logging. See [Apple WWDC video](https://developer.apple.com/videos
 2. In Info.plist, add a line `Privacy - Camera Usage Description` and set the value to 'The app needs access to the camera for scanning.'
 
 ## Main View
-The sample app has a main view with a button to open the scan view. This is to demonstrate how to close and re-open the scanview.
+Unlike the scanner app from the SDK, this sample app has a main view that does not allow to scan directly. You can navigate to the scan view via a button. This allows to demonstrate how to close and re-open the scanview.
 
-1. Rename the file `ViewController` to `MainViewController` and likewise for the class name
-2. In the main storyboard, under the identity inspector, choose the controller class `MainViewController`
-3. Add a button to the main view, for example 'New Scan'
+1. Create a Group `MainView` and move the `ViewController` to it.
+2. Rename the file `ViewController` to `MainViewController` and likewise for the class name.
+3. Copy the MainViewController code from the sample to your class.
+4. Copy the file `ScanBufferDelegate` to your project.
+5. In the main storyboard, under the identity inspector, choose the controller class `MainViewController`.
+6. In the storyboard, add the following UI elements:
+   - A button for example 'New Scan'.
+   - A Label, 'No scan collected yet'
+7. Bind the label to `@IBOutlet weak var scanMessageLabel`
 
 ## Scan View
 1. Add a second view controller to the storyboard and create a segue from the 'New Scan' button to the second view. Name the segue 'NewScanSegue' and make the presentation `Full Screen`. In the scene hierarchy, rename the View Controller to 'Scan View Controller'.
