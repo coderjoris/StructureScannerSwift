@@ -102,6 +102,9 @@ The sample app has a main view with a button to open the scan view. This is to d
 2. In the merh view, create the following UI elements:
    - Buttons for 'Accept', 'Reset' and 'Back'
    - Label for 'Message'
+   - Pan Gesture Recognizers 'One Finger Pan' (Min Touches = Max Touches = 1) and 'Two Finger Pan' (Min Touches = Max Touches = 2)
+   - Pinch Gesture Recognizer
+   - Tap Gesture Recognizer
    - Create an unwind segue from the 'Back' button to the scan view. You'll have to create an `@IBAction` in the scan view controller first, such as `unwindToScanView` in the sample. Set the unwind segue identifier to 'unwindMeshToScanView'.
    - Create an unwind segue from the 'Accept' button to the main view. Set the unwind segue identifier to 'unwindMeshToMainView' 
    
@@ -112,5 +115,10 @@ The sample app has a main view with a button to open the scan view. This is to d
 6. Bind the following items to the controller class functions and fields:
   - Eview to `@IBOutlet weak var eview`
   - Message label to `@IBOutlet weak var meshViewerMessageLabel`
+  - One Finger Pan Gesture Recognizer to `@IBAction func oneFingerPanGesture`
+  - Two Finger Pan Gesture Recognizer to `@IBAction func twoFingersPanGesture`
+  - Pinch Gesture Recognizer to `@IBAction func pinchScaleGesture`
+  - Tap Gesture Recognizer to `@IBAction func tapGesture`
+  
 
 
