@@ -10,7 +10,7 @@ This guide has been tested with Structure SDK 0.12 and XCode 11.4.
    - Add to App target
 3. In Project, tab 'Info', set the iOS deployment target to 13.0 (required for working with scenes)
 4. Select the App target, tab 'General'
-   - Select target device 'iPad' and 'landscape right' (unselect others)
+   - Select target device 'iPad', 'landscape right', 'Requires full screen' (unselect others)
    - Check 'Hide status bar during application lauch' and 'Requires full screen'
    - Under 'Frameworks, Libraries and Embedded Content':
      - Choose 'Embed & Sign' for Structure.Framework
