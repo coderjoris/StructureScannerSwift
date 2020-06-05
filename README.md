@@ -64,12 +64,14 @@ Unlike the scanner app from the SDK, this sample app has a main view that does n
 4. Copy the other swift files in the MainView folder to your project.
 5. In the main storyboard, under the identity inspector, choose the controller class `MainViewController`.
 6. In the storyboard, add the following UI elements:
-   - A button for example 'New Scan'.
+   - Buttons for 'New Scan' and 'Send'.
    - A Label, 'No scan collected yet'
    - A stack view for displaying the battery status. Set the class to `BatteryStatusUIStackView` in the Identity Inspector.
 7. Bind the following items:
    - The text label to `@IBOutlet weak var scanMessageLabel`
    - The stack view to `@IBOutlet weak var batteryStatusControl`
+   - The send button to `@IBOutlet weak var sendButton`
+   - Send button Touch Up Inside to `@IBAction func sendButtonPressed`
 
 ## Scan View
 1. Add a second view controller to the storyboard and create a segue from the 'New Scan' button to the second view. Name the segue 'NewScanSegue' and make the presentation `Full Screen`. In the scene hierarchy, rename the View Controller to 'Scan View Controller'.
