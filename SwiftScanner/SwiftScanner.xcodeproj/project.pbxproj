@@ -42,7 +42,6 @@
 		85E12965248A52260036209E /* BatteryStatusUIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E12964248A52260036209E /* BatteryStatusUIStackView.swift */; };
 		85E12967248A69420036209E /* BatteryStatusMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E12966248A69420036209E /* BatteryStatusMonitor.swift */; };
 		85E12969248A6CF30036209E /* BatteryStatusListenerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E12968248A6CF30036209E /* BatteryStatusListenerDelegate.swift */; };
-		85E1296D248A8A370036209E /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1296C248A8A360036209E /* UIApplicationExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,7 +110,6 @@
 		85E12964248A52260036209E /* BatteryStatusUIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryStatusUIStackView.swift; sourceTree = "<group>"; };
 		85E12966248A69420036209E /* BatteryStatusMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryStatusMonitor.swift; sourceTree = "<group>"; };
 		85E12968248A6CF30036209E /* BatteryStatusListenerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryStatusListenerDelegate.swift; sourceTree = "<group>"; };
-		85E1296C248A8A360036209E /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,7 +241,6 @@
 				85E12964248A52260036209E /* BatteryStatusUIStackView.swift */,
 				85E12966248A69420036209E /* BatteryStatusMonitor.swift */,
 				85E12968248A6CF30036209E /* BatteryStatusListenerDelegate.swift */,
-				85E1296C248A8A360036209E /* UIApplicationExtension.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -373,7 +370,6 @@
 				85AAACE524883D4200C28132 /* MeshRenderer.swift in Sources */,
 				85E12969248A6CF30036209E /* BatteryStatusListenerDelegate.swift in Sources */,
 				85AAACC32487DFFE00C28132 /* EAGLView.swift in Sources */,
-				85E1296D248A8A370036209E /* UIApplicationExtension.swift in Sources */,
 				85AAACF0248A41DC00C28132 /* ColorizeDelegate.swift in Sources */,
 				85AAAC8E2486911100C28132 /* SceneDelegate.swift in Sources */,
 				85AAACC82488280600C28132 /* ScanViewController.swift in Sources */,
