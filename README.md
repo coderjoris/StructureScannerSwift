@@ -115,6 +115,7 @@ The sample app has a main view with a button to open the scan view. This is to d
 6. Bind the following items to the controller class functions and fields:
   - Eview to `@IBOutlet weak var eview`
   - Message label to `@IBOutlet weak var meshViewerMessageLabel`
+  - Reset Button Touch Up Inside to `@IBAction func resetView`
   - One Finger Pan Gesture Recognizer to `@IBAction func oneFingerPanGesture`
   - Two Finger Pan Gesture Recognizer to `@IBAction func twoFingersPanGesture`
   - Pinch Gesture Recognizer to `@IBAction func pinchScaleGesture`
