@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="ipad12_9" orientation="landscape" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="SwiftScanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XDa-pW-Wy1" userLabel="Button - New Scan">
+                                <rect key="frame" x="50" y="488" width="131" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="New Scan"/>
+                                <connections>
+                                    <segue destination="aya-tM-9B2" kind="presentation" identifier="NewScanSegue" modalPresentationStyle="fullScreen" id="chf-sn-XKM"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5rz-Xo-4lm" userLabel="Label - Scan Message">
+                                <rect key="frame" x="570" y="490.5" width="226" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Iux-9l-9F1" userLabel="Battery Status Stack View" customClass="BatteryStatusUIStackView" customModule="SwiftScanner" customModuleProvider="target">
+                                <rect key="frame" x="1221" y="954" width="125" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="125" id="SUJ-ij-j6C"/>
+                                    <constraint firstAttribute="height" constant="50" id="TNR-eU-nXK"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8to-nL-N5C" userLabel="Button - Send">
+                                <rect key="frame" x="1248" y="488" width="68" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="sendButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ddu-qU-wBh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fA7-SP-gVZ" userLabel="Button - Delete Scans">
+                                <rect key="frame" x="598" y="605.5" width="170" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Delete Scans">
+                                    <color key="titleColor" red="1" green="0.094733535390425838" blue="0.11097448163623835" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteScansButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1ne-e0-qor"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8to-nL-N5C" secondAttribute="trailing" constant="50" id="59I-AM-0kL"/>
+                            <constraint firstItem="8to-nL-N5C" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="N4S-zf-fgw"/>
+                            <constraint firstItem="XDa-pW-Wy1" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="TTT-dM-pJd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Iux-9l-9F1" secondAttribute="bottom" constant="20" id="YWr-5k-vzZ"/>
+                            <constraint firstItem="XDa-pW-Wy1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="cpV-qK-B4U"/>
+                            <constraint firstItem="fA7-SP-gVZ" firstAttribute="top" secondItem="5rz-Xo-4lm" secondAttribute="bottom" constant="72" id="gSu-yh-uI0"/>
+                            <constraint firstItem="fA7-SP-gVZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gkA-Nl-P2e"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Iux-9l-9F1" secondAttribute="trailing" constant="20" id="iS8-5b-WPC"/>
+                            <constraint firstItem="5rz-Xo-4lm" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="yIQ-Ub-N4I"/>
+                            <constraint firstItem="5rz-Xo-4lm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zXy-1n-nO0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="batteryStatusControl" destination="Iux-9l-9F1" id="DKc-xd-SkM"/>
+                        <outlet property="deleteScansButton" destination="fA7-SP-gVZ" id="Irm-3P-Pk4"/>
+                        <outlet property="scanMessageLabel" destination="5rz-Xo-4lm" id="dtZ-n6-B9T"/>
+                        <outlet property="sendButton" destination="8to-nL-N5C" id="NXD-wy-Phh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="110"/>
+        </scene>
+        <!--Scan View Controller-->
+        <scene sceneID="Us6-cA-KCx">
+            <objects>
+                <viewController id="aya-tM-9B2" userLabel="Scan View Controller" customClass="ScanViewController" customModule="SwiftScanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qsB-hP-kLN" userLabel="Eview" customClass="EAGLView" customModule="SwiftScanner" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0g-tb-6c4" userLabel="Button - Back">
+                                <rect key="frame" x="50" y="488" width="65" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="vRi-dc-iEb" kind="unwind" identifier="unwindScanToMainView" unwindAction="unwindToMainViewWithSegue:" id="khY-ZH-JvO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EPf-Ky-7aq" userLabel="Button - Scan">
+                                <rect key="frame" x="1250" y="488" width="66" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Scan"/>
+                                <connections>
+                                    <action selector="scanButtonPressed:" destination="aya-tM-9B2" eventType="touchUpInside" id="TJN-YY-8IP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FQh-v6-NmQ" userLabel="Button - Reset">
+                                <rect key="frame" x="1242" y="588" width="74" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="resetButtonPressed:" destination="aya-tM-9B2" eventType="touchUpInside" id="kD2-Cy-AO9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXg-nL-PoW" userLabel="Button - Done">
+                                <rect key="frame" x="1247" y="488" width="69" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="doneButtonPressed:" destination="aya-tM-9B2" eventType="touchUpInside" id="Uph-OA-eqe"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Structure Sensor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wGh-36-TyV" userLabel="Label - App Status Message">
+                                <rect key="frame" x="554" y="490.5" width="258.5" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracking Lost. Try to re-align or press reset." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mh1-Ib-McR" userLabel="Label - Tracking Lost">
+                                <rect key="frame" x="355" y="931" width="656" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Wv-p6-dgq" userLabel="Label - Distance">
+                                <rect key="frame" x="593" y="777" width="180" height="54"/>
+                                <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="Mhz-F8-7qz"/>
+                                    <constraint firstAttribute="height" constant="54" id="rms-g5-BGX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HBn-hg-uqs" userLabel="Stack View - Battery Status">
+                                <rect key="frame" x="1256" y="976" width="100" height="38"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SensorBatteryLow" translatesAutoresizingMaskIntoConstraints="NO" id="xNP-sW-F03" userLabel="Image - SensorBatteryLow">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="26"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="WPG-ms-W2e"/>
+                                            <constraint firstAttribute="height" constant="26" id="oRx-lp-1Br"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sensor Battery" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tmr-7D-lw0" userLabel="Label - Sensor Battery">
+                                        <rect key="frame" x="0.0" y="26" width="100" height="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Tmr-7D-lw0" firstAttribute="centerX" secondItem="HBn-hg-uqs" secondAttribute="centerX" id="JFd-SB-cCg"/>
+                                    <constraint firstItem="xNP-sW-F03" firstAttribute="centerX" secondItem="HBn-hg-uqs" secondAttribute="centerX" id="VUs-3a-sWP"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="0Wv-p6-dgq" firstAttribute="centerX" secondItem="qsB-hP-kLN" secondAttribute="centerX" id="1Lu-gU-Gfc"/>
+                            <constraint firstItem="pAM-gy-OAO" firstAttribute="bottom" secondItem="Mh1-Ib-McR" secondAttribute="bottom" constant="50" id="21d-tf-K7b"/>
+                            <constraint firstItem="pAM-gy-OAO" firstAttribute="bottom" secondItem="HBn-hg-uqs" secondAttribute="bottom" constant="10" id="2sa-1u-JCy"/>
+                            <constraint firstItem="pAM-gy-OAO" firstAttribute="trailing" secondItem="yXg-nL-PoW" secondAttribute="trailing" constant="50" id="4SA-xM-bPa"/>
+                            <constraint firstItem="yXg-nL-PoW" firstAttribute="centerY" secondItem="qsB-hP-kLN" secondAttribute="centerY" id="CCn-8e-eZx"/>
+                            <constraint firstItem="pAM-gy-OAO" firstAttribute="trailing" secondItem="EPf-Ky-7aq" secondAttribute="trailing" constant="50" id="KKO-Uj-vTX"/>
+                            <constraint firstItem="Mh1-Ib-McR" firstAttribute="top" secondItem="0Wv-p6-dgq" secondAttribute="bottom" constant="100" id="PNV-nA-CVx"/>
+                            <constraint firstItem="EPf-Ky-7aq" firstAttribute="centerY" secondItem="qsB-hP-kLN" secondAttribute="centerY" id="SSW-9e-HxU"/>
+                            <constraint firstItem="Mh1-Ib-McR" firstAttribute="centerX" secondItem="qsB-hP-kLN" secondAttribute="centerX" id="c5r-h4-hUe"/>
+                            <constraint firstItem="c0g-tb-6c4" firstAttribute="leading" secondItem="pAM-gy-OAO" secondAttribute="leading" constant="50" id="dsD-sJ-aE2"/>
+                            <constraint firstItem="pAM-gy-OAO" firstAttribute="trailing" secondItem="HBn-hg-uqs" secondAttribute="trailing" constant="10" id="fHa-NF-zmB"/>
+                            <constraint firstItem="FQh-v6-NmQ" firstAttribute="centerY" secondItem="qsB-hP-kLN" secondAttribute="centerY" constant="100" id="ghr-b5-gS5"/>
+                            <constraint firstItem="wGh-36-TyV" firstAttribute="centerX" secondItem="qsB-hP-kLN" secondAttribute="centerX" id="iS0-oY-fg8"/>
+                            <constraint firstItem="pAM-gy-OAO" firstAttribute="trailing" secondItem="FQh-v6-NmQ" secondAttribute="trailing" constant="50" id="m2N-yu-lpi"/>
+                            <constraint firstItem="c0g-tb-6c4" firstAttribute="centerY" secondItem="qsB-hP-kLN" secondAttribute="centerY" id="nwg-0y-7dN"/>
+                            <constraint firstItem="wGh-36-TyV" firstAttribute="centerY" secondItem="qsB-hP-kLN" secondAttribute="centerY" id="veV-rQ-emv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pAM-gy-OAO"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="ejb-16-7me" appends="YES" id="Cg8-Jj-iRr"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" id="VVe-Bv-foG"/>
+                    <connections>
+                        <outlet property="appStatusMessageLabel" destination="wGh-36-TyV" id="Yuf-Ek-Hkj"/>
+                        <outlet property="backButton" destination="c0g-tb-6c4" id="5Zr-9r-MKF"/>
+                        <outlet property="batteryLabel" destination="Tmr-7D-lw0" id="Qyj-c7-RTa"/>
+                        <outlet property="distanceLabel" destination="0Wv-p6-dgq" id="dNM-vY-2kb"/>
+                        <outlet property="doneButton" destination="yXg-nL-PoW" id="NZe-hd-tSn"/>
+                        <outlet property="eview" destination="qsB-hP-kLN" id="xPI-jE-4l6"/>
+                        <outlet property="resetButton" destination="FQh-v6-NmQ" id="IFq-G6-alh"/>
+                        <outlet property="scanButton" destination="EPf-Ky-7aq" id="bF2-Xg-AoY"/>
+                        <outlet property="sensorBatteryLowImage" destination="xNP-sW-F03" id="bZO-iy-89f"/>
+                        <outlet property="trackingLostLabel" destination="Mh1-Ib-McR" id="RXS-7T-5R6"/>
+                        <segue destination="J5c-5e-lgR" kind="presentation" identifier="ShowMeshSegue" modalPresentationStyle="fullScreen" id="ZPG-Wt-mfb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gld-cB-CSa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="vRi-dc-iEb" userLabel="Exit" sceneMemberID="exit"/>
+                <pinchGestureRecognizer id="ejb-16-7me">
+                    <connections>
+                        <action selector="pinchGesture:" destination="aya-tM-9B2" id="Iav-0q-bOv"/>
+                    </connections>
+                </pinchGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="833" y="109"/>
+        </scene>
+        <!--Mesh View Controller-->
+        <scene sceneID="QFI-m9-Xre">
+            <objects>
+                <viewController id="J5c-5e-lgR" userLabel="Mesh View Controller" customClass="MeshViewController" customModule="SwiftScanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eFk-Yj-WLz" userLabel="EView" customClass="EAGLView" customModule="SwiftScanner" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A6l-XJ-Jii">
+                                <rect key="frame" x="50" y="488" width="65" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="rL9-T4-wf5" kind="unwind" identifier="unwindMeshToScanView" unwindAction="unwindToScanViewWithSegue:" id="YxK-rp-phP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kSc-qO-5Sw">
+                                <rect key="frame" x="45.5" y="586" width="74" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="resetView:" destination="J5c-5e-lgR" eventType="touchUpInside" id="9Zn-I7-r4a"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RDD-ai-12y">
+                                <rect key="frame" x="1224" y="488" width="92" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Accept"/>
+                                <connections>
+                                    <segue destination="rL9-T4-wf5" kind="unwind" identifier="unwindMeshToMainView" unwindAction="unwindToMainViewWithSegue:" id="SuS-zN-QPR"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Colorizing..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hhu-fS-7AR" userLabel="Label - Structure Message">
+                                <rect key="frame" x="533" y="474.5" width="300" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="K33-qV-AD8"/>
+                                    <constraint firstAttribute="height" constant="75" id="OJ9-fe-l0F"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="Hhu-fS-7AR" firstAttribute="centerX" secondItem="eFk-Yj-WLz" secondAttribute="centerX" id="4nh-IA-7ec"/>
+                            <constraint firstItem="47o-Q2-7KM" firstAttribute="trailing" secondItem="RDD-ai-12y" secondAttribute="trailing" constant="50" id="DlV-k6-he4"/>
+                            <constraint firstItem="kSc-qO-5Sw" firstAttribute="centerX" secondItem="A6l-XJ-Jii" secondAttribute="centerX" id="JH7-R9-F6x"/>
+                            <constraint firstItem="RDD-ai-12y" firstAttribute="centerY" secondItem="eFk-Yj-WLz" secondAttribute="centerY" id="Rar-lg-mut"/>
+                            <constraint firstItem="A6l-XJ-Jii" firstAttribute="centerY" secondItem="eFk-Yj-WLz" secondAttribute="centerY" id="XuI-tp-pVC"/>
+                            <constraint firstItem="Hhu-fS-7AR" firstAttribute="centerY" secondItem="eFk-Yj-WLz" secondAttribute="centerY" id="fX8-36-5VD"/>
+                            <constraint firstItem="kSc-qO-5Sw" firstAttribute="top" secondItem="A6l-XJ-Jii" secondAttribute="bottom" constant="50" id="jf1-Xx-VNA"/>
+                            <constraint firstItem="A6l-XJ-Jii" firstAttribute="leading" secondItem="47o-Q2-7KM" secondAttribute="leading" constant="50" id="nWZ-y3-ulc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="47o-Q2-7KM"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="dQl-g8-qzK" appends="YES" id="43O-dT-0B8"/>
+                            <outletCollection property="gestureRecognizers" destination="2Yi-0G-KRu" appends="YES" id="CRW-9T-qyY"/>
+                            <outletCollection property="gestureRecognizers" destination="MmE-oH-Gs9" appends="YES" id="N4W-iB-wOd"/>
+                            <outletCollection property="gestureRecognizers" destination="fnh-Ph-TL8" appends="YES" id="L52-e1-ml8"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="eview" destination="eFk-Yj-WLz" id="Pmr-tk-ozL"/>
+                        <outlet property="meshViewerMessageLabel" destination="Hhu-fS-7AR" id="Kl8-f5-T48"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X6N-5y-MUY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="rL9-T4-wf5" userLabel="Exit" sceneMemberID="exit"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" maximumNumberOfTouches="1" id="dQl-g8-qzK" userLabel="One Finger Pan">
+                    <connections>
+                        <action selector="oneFingerPanGesture:" destination="J5c-5e-lgR" id="zF0-qF-ofe"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="2" maximumNumberOfTouches="2" id="2Yi-0G-KRu" userLabel="Two Finger Pan">
+                    <connections>
+                        <action selector="twoFingersPanGesture:" destination="J5c-5e-lgR" id="dHL-Cy-xtB"/>
+                    </connections>
+                </panGestureRecognizer>
+                <pinchGestureRecognizer id="MmE-oH-Gs9">
+                    <connections>
+                        <action selector="pinchScaleGesture:" destination="J5c-5e-lgR" id="tmI-jj-q75"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <tapGestureRecognizer id="fnh-Ph-TL8">
+                    <connections>
+                        <action selector="tapGesture:" destination="J5c-5e-lgR" id="zxh-Pt-bLD"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1539" y="109"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="SensorBatteryLow" width="270" height="68"/>
+    </resources>
+</document>

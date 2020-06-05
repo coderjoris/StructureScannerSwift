@@ -1,0 +1,30 @@
+/* 
+  Localizable.strings
+  SwiftScanner
+
+  Created by Windmolders Joris on 03/06/2020.
+  Copyright © 2020 CoderJoris. All rights reserved.
+*/
+"STRUCTURE_SENSOR_SCANNER" = "Structure Sensor Scanner";
+"PLEASE_CONNECT_STRUCTURE_SENSOR" = "Please connect Structure Sensor.";
+"PLEASE_CHARGE_STRUCTURE_SENSOR" = "Please Charge Structure Sensor.";
+"THIS_APP_REQUIRES_CAMERA_ACCESS_SCAN" = "This app requires camera access to capture footprints.\nPlease allow access by going to Settings → Privacy → Camera.";
+"THIS_APP_REQUIRES_CAMERA_ACCESS_QR" = "This app requires camera access to capture QR codes.\nPlease allow access by going to Settings → Privacy → Camera.";
+"NEED_CALIBRATED_COLOR_CAMERA" = "This app requires an iOS device with a supported bracket.";
+"FINALIZING_MESH" = "Finalizing model...";
+"SENSOR_IS_WAKING_UP" = "Sensor is initializing. Please wait...";
+"PROCESSING_PCT__0__" = "Processing: % 3d%%";
+"HOLE_FILLING_PCT__0__" = "Hole filling: % 3d%%";
+"MEMORY_LOW" = "Memory Low";
+"OK" = "OK";
+"COLORIZING_WAS_CANCELED" = "Colorizing was canceled.";
+"SCANNING_WILL_BE_STOPPED" = "Scanning will be stopped to avoid loss.";
+"__0__CM" = "%.1f cm";
+"NAN_CM" = "nan cm";
+"TRACKING_LOST_PLEASE_REALIGN" = "Tracking Lost! Please Realign or Press Reset.";
+"PUT_MODEL_BACK_IN_VIEW" = "Please put the model back in view.";
+"PLEASE_STEP_BACK" = "Too close to the scene! Please step back.";
+"PLEASE_HOLD_STILL" = "Please hold still so we can capture a keyframe...";
+"CAMERA_ACCESS_NOT_GRANTED_OPEN_SETTINGS" = "The app requires access to the camera for scanning.\nThe app settings will now be opened.";
+"NO_SCANS_COLLECTED_YET" = "No scans collected yet.";
+"COLLECTED__0__SCANS" = "Collected %1d scans.";
