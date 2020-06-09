@@ -17,7 +17,7 @@ Please note:
 - A **battery status indicator** is provided separate from the scan view.
 
 ## What can you do with this project?
-The guide below demonstrates how you can build an app with a **custom user interface**, while just copying over the files needed for capturing scans.
+The guide below demonstrates how you can build an app with a **custom user interface**, while just copying over the files needed for capturing scans. All the bindings that you need between the custom UI and the copied code are explained.
 
 ## Screenshots
 
