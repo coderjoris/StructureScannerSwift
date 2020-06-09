@@ -22,6 +22,7 @@ The guide below demonstrates how you can build an app with a **custom user inter
 
 ## Screenshots
 ![Screen 1](https://github.com/coderjoris/StructureScannerSwift/blob/master/SwiftScanner/Screenshots/Screen-1.png?s=200)
+<img src="https://github.com/coderjoris/StructureScannerSwift/blob/master/SwiftScanner/Screenshots/Screen-1.png" width="400">
 
 ## Project Setup
 1. Create a new iOS Single View App with a StoryBoard user interface
