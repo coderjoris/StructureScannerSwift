@@ -49,6 +49,25 @@ The guide below demonstrates how you can build an app with a **custom user inter
    OpenGLES.framework
 ```
 
+These seem to work for me. However, keep in mind that according to the SDK documentation, you also have to include these frameworks:
+
+```
+    AVFoundation.framework
+    CoreImage.framework
+    CoreGraphics.framework
+    CoreMedia.framework
+    CoreMotion.framework
+    CoreVideo.framework
+    Foundation.framework
+    ImageIO.framework
+    Metal.framework
+    MetalPerformanceShaders.framework
+    QuartzCore.framework
+    UIKit.framework
+    VideoToolbox.framework
+    libz.dylib
+```
+
 5. Open the Info.plist file
    - Add a line 'Supported external accessory protocols', it has one subrow by default
    - Add two more subrows, and set the values to
@@ -130,12 +149,6 @@ Unlike the scanner app from the SDK, this sample app has a main view that does n
   - Sensor Battery Label to `@IBOutlet weak var batteryLabel`
   - Sensor Battery Image to `@IBOutlet weak var sensorBatteryLowImage`
   
-  
-  
-  
-  
-   
-
 ## Mesh View
 1. Add a third view controller to the storyboard and create a segue from the Scan View Controller (via the ViewController button) to the new view. Name the segue 'ShowMeshSegue' and make the presentation `Full Screen`. In the scene hierarchy, rename the View Controller to 'Mesh View Controller'.
 2. In the merh view, create the following UI elements:
@@ -160,5 +173,9 @@ Unlike the scanner app from the SDK, this sample app has a main view that does n
   - Pinch Gesture Recognizer to `@IBAction func pinchScaleGesture`
   - Tap Gesture Recognizer to `@IBAction func tapGesture`
   
-
-
+## App Store
+If you want to publish your app to the App Store, then you need to replace the Structure file in the SDK Framework folder with a version for arm64 only (i.e., without x64 support). To create an arm64 version in your local copy of the SDK, run this at the command line in the `Structure.framework` folder:
+```
+lipo Structure -extract arm64 -output Structure.arm64
+```
+then copy and rename the `Structure.arm64` file to the Framework folder in your project such that it replaces the Structure file.
