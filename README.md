@@ -24,6 +24,8 @@ The guide below demonstrates how you can build an app with a **custom user inter
 |<img src="https://github.com/coderjoris/StructureScannerSwift/blob/master/SwiftScanner/Screenshots/Screen-1.png" width="400"> |<img src="https://github.com/coderjoris/StructureScannerSwift/blob/master/SwiftScanner/Screenshots/Screen-2.png" width="400">|
 |--|--|
 |<img src="https://github.com/coderjoris/StructureScannerSwift/blob/master/SwiftScanner/Screenshots/Screen-3.png" width="400"> |<img src="https://github.com/coderjoris/StructureScannerSwift/blob/master/SwiftScanner/Screenshots/Screen-4.png" width="400">|
+|--|--|
+|<img src="https://github.com/coderjoris/StructureScannerSwift/blob/master/SwiftScanner/Screenshots/Screen-5.png" width="400"> |<img src="https://github.com/coderjoris/StructureScannerSwift/blob/master/SwiftScanner/Screenshots/Screen-6.png" width="400">|
 
 
 ## Project Setup
