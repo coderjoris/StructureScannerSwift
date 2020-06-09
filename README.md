@@ -1,6 +1,22 @@
 # StructureScannerSwift
-Guide on setting up a Swift project with Structure Scanner.
-This guide has been tested with Structure SDK 0.12 and XCode 11.4.
+## Environment
+- Structure SDK 0.12
+- XCode 11.4
+- Swift 5
+- iOS 13+
+
+## About
+This is a guide for developing an iPad app in Swift for scanning with the Structure sensor.
+
+Please note:
+- This is not a clone of the Scanner sample app in the SDK
+- The app uses STCaptureSession instead of the depreceated STSensorController
+- The app demonstrates how to take multiple scans starting from a home screen, by opening and closing the scan view multiple times
+- The scans can be saved via the iOS share function, e.g. via mail, message, airdrop, iCloud...
+- There is no settings UI. These settings are hard coded: `STCaptureSessionPreset = bodyScanning`, mesh viewer uses color rendering mode only.
+
+## Screenshots
+
 
 ## Project Setup
 1. Create a new iOS Single View App with a StoryBoard user interface
