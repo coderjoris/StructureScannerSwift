@@ -15,6 +15,7 @@ Please note:
 - The scans can be saved via the **iOS share function**, e.g. via mail, message, airdrop, iCloud...
 - There is no settings UI. These settings are hard coded: `STCaptureSessionPreset = bodyScanning`, mesh viewer uses color rendering mode only.
 - A **battery status indicator** is provided separate from the scan view.
+- The UI is very basic with just text buttons instead of graphics, which you can easily customize.
 
 ## What can you do with this project?
 The guide below demonstrates how you can build an app with a **custom user interface**, while just copying over the files needed for capturing scans. All the bindings that you need between the custom UI and the copied code are explained.
