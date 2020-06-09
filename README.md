@@ -90,7 +90,7 @@ These seem to work for me. However, keep in mind that according to the SDK docum
 7. Select the project, tab 'Build Settings', group 'All'
    - Search for 'Preprocessor Macros' and add the following flag to the Debug and Release: 'HAS_LIBCXX=1'
    - Search for 'Enable Bitcode' and set to false for Debug and Release
-   - Search for 'Objective-C Bridging Header' and enter the name of the bridging header.
+   - Search for 'Objective-C Bridging Header' and enter the path to the bridging header, such as `SwiftScanner/SwiftScanner-bridging-header.h` in the sample project.
   
 Now you should be able to build and run the project
 
