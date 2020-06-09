@@ -19,7 +19,7 @@ Please note:
 - The UI is very basic with just text buttons instead of graphics, which you can easily customize.
 
 ## What can you do with this project?
-The guide below demonstrates how you can build an app with a **custom user interface**, while just copying over the files needed for capturing scans. All the bindings that you need between the custom UI and the copied code are explained.
+You can just build and use the project as is, or follow the guide below that demonstrates how to build your own app with a **custom user interface**, while just copying over the other files needed for capturing scans. All the bindings that you need between the custom UI and the copied code are explained.
 
 ## Screenshots
 |<img src="https://github.com/coderjoris/StructureScannerSwift/blob/master/SwiftScanner/Screenshots/Screen-1.png" width="400"> |<img src="https://github.com/coderjoris/StructureScannerSwift/blob/master/SwiftScanner/Screenshots/Screen-2.png" width="400">|
