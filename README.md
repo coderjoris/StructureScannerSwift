@@ -21,7 +21,7 @@ Please note:
 The guide below demonstrates how you can build an app with a **custom user interface**, while just copying over the files needed for capturing scans. All the bindings that you need between the custom UI and the copied code are explained.
 
 ## Screenshots
-![Screen 1](https://github.com/coderjoris/StructureScannerSwift/blob/master/SwiftScanner/Screenshots/Screen-1.png | width=400)
+![Screen 1](https://github.com/coderjoris/StructureScannerSwift/blob/master/SwiftScanner/Screenshots/Screen-1.png)
 
 ## Project Setup
 1. Create a new iOS Single View App with a StoryBoard user interface
