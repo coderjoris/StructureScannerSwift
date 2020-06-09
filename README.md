@@ -175,6 +175,7 @@ The sample app has a main view that from where you can navigate to the scan view
   - Tap Gesture Recognizer to `@IBAction func tapGesture`
   
 ## Build and Run
+Or, build and debug.
 
 ## App Store
 If you want to publish your app to the App Store, then you need to replace the Structure file in the SDK Framework folder with a version for arm64 only (i.e., without x64 support). To create an arm64 version in your local copy of the SDK, run this at the command line in the `Structure.framework` folder:
