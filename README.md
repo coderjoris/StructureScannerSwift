@@ -94,7 +94,7 @@ These seem to work for me. However, keep in mind that according to the SDK docum
 Now you should be able to build and run the project
 
 ## Logging
-Setup unified logging. See [Apple WWDC video](https://developer.apple.com/videos/play/wwdc2016/721/) for more information. In the sample project, an `OSLog` extensions is provided with some predefined logging categories.
+Setup unified logging. See [Apple WWDC video](https://developer.apple.com/videos/play/wwdc2016/721/) for more information. In the sample project, an `OSLog` extensions is provided with some predefined logging categories. Copy these to your project since the log categories are used in the files for capturing scans.
 
 ## Camera access
 1. Add Swift code to check for permission to use the camera in the `AppDelegate`.
