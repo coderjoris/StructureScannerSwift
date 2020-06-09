@@ -101,7 +101,7 @@ Setup unified logging. See [Apple WWDC video](https://developer.apple.com/videos
 2. In Info.plist, add a line `Privacy - Camera Usage Description` and set the value to 'The app needs access to the camera for scanning.'
 
 ## Main View
-Unlike the scanner app from the SDK, this sample app has a main view that does not allow to scan directly. You can navigate to the scan view via a button. This allows to demonstrate how to close and re-open the scanview.
+The sample app has a main view that from where you can navigate to the scan view via a button. This allows to demonstrate how to close and re-open the scanview.
 
 1. Create a Group `MainView` and move the `ViewController` to it.
 2. Rename the file `ViewController` to `MainViewController` and likewise for the class name.
