@@ -1,9 +1,17 @@
 //
-//  ScanViewController.swift
-//  SwiftScanner
+//    This file is a Swift port of the Structure SDK sample app "Scanner".
+//    Copyright © 2016 Occipital, Inc. All rights reserved.
+//    http://structure.io
 //
-//  Created by Windmolders Joris on 03/06/2020.
-//  Copyright © 2020 CoderJoris. All rights reserved.
+//  ViewController.swift
+//
+//  Ported by Christopher Worley on 8/20/16.
+//
+//  Ported to Swift 5 by Windmolders Joris on 03/06/2020.
+//  - Renamed to ScanViewController.swift
+//  - Support closing the scan view
+//  - Using segues
+//  - Added distance label
 //
 
 import Foundation
