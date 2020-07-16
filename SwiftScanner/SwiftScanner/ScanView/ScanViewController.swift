@@ -194,7 +194,7 @@ class ScanViewController: UIViewController, STBackgroundTaskDelegate, ColorizeDe
     // Structure Sensor controller.
     //var _structureStreamConfig: STStreamConfig
 
-    var _slamState = SlamData.init()
+    var _slamState : SlamData = SlamData.init()
 
     var _options = Options.init()
     
@@ -212,10 +212,10 @@ class ScanViewController: UIViewController, STBackgroundTaskDelegate, ColorizeDe
     var _volumeScale = PinchScaleState()
 
     // Mesh viewer controllers.
-    var meshViewController: MeshViewController!
+    var meshViewController: MeshViewController? = nil
 
     // Structure Sensor controller.
-    var _captureSession: STCaptureSession!
+    var _captureSession: STCaptureSession? = nil
 
     var _naiveColorizeTask: STBackgroundTask? = nil
     var _enhancedColorizeTask: STBackgroundTask? = nil
@@ -342,7 +342,7 @@ class ScanViewController: UIViewController, STBackgroundTaskDelegate, ColorizeDe
     {
         runBatteryStatusTimer()
         if currentStateNeedsSensor() {
-            _captureSession.streamingEnabled = true;
+            _captureSession?.streamingEnabled = true;
         }
     }
 
@@ -433,15 +433,15 @@ class ScanViewController: UIViewController, STBackgroundTaskDelegate, ColorizeDe
 
         // Only show the scan buttons if the sensor is ready
         // To avoid flickering on and off when initially connecting
-        if _captureSession.sensorMode == .ready {
+        if _captureSession?.sensorMode == .ready {
             showScanControls()
         }
         
         // Cannot be lost in cube placement mode.
         trackingLostLabel.isHidden = true
 
-        _captureSession.streamingEnabled = true;
-        _captureSession.properties = STCaptureSessionPropertiesSetColorCameraAutoExposureISOAndWhiteBalance();
+        _captureSession?.streamingEnabled = true;
+        _captureSession?.properties = STCaptureSessionPropertiesSetColorCameraAutoExposureISOAndWhiteBalance();
 
         _slamState.scannerState = .cubePlacement
 
@@ -470,7 +470,7 @@ class ScanViewController: UIViewController, STBackgroundTaskDelegate, ColorizeDe
         _slamState.tracker!.initialCameraPose = _slamState.initialDepthCameraPose
 
         // We will lock exposure during scanning to ensure better coloring.
-        _captureSession.properties = STCaptureSessionPropertiesLockAllColorCameraPropertiesToCurrent();
+        _captureSession?.properties = STCaptureSessionPropertiesLockAllColorCameraPropertiesToCurrent();
 
         _slamState.scannerState = .scanning
     }
@@ -491,17 +491,14 @@ class ScanViewController: UIViewController, STBackgroundTaskDelegate, ColorizeDe
         // never hide the back button
         backButton.isHidden = false
 
-        if (_captureSession.occWriter.isWriting)
-           {
-            let success = _captureSession.occWriter.stopWriting()
-               if (!success)
-               {
+        if let isWriting = _captureSession?.occWriter.isWriting, isWriting {
+            if let success = _captureSession?.occWriter.stopWriting(), !success {
                 // Should fail instead - but not using OCC anyway
                    os_log(.error, log:OSLog.scanning, "Could not properly stop OCC writer.")
                }
            }
         
-        _captureSession.streamingEnabled = false;
+        _captureSession?.streamingEnabled = false;
     }
     
     private func enterViewingState() {
@@ -681,10 +678,15 @@ class ScanViewController: UIViewController, STBackgroundTaskDelegate, ColorizeDe
                         self.appStatusMessageLabel.isHidden = true
                         self.view.isUserInteractionEnabled = true
                         
+                        guard let captureSession = self._captureSession else {
+                            os_log(.info, log:OSLog.scanning, "Prevented crash when returning from scan view")
+                            return
+                        }
+                        
                         // Restore the scan controls that were hidden for displaying the message, but only
                         // if the sensor is ready, otherwise other messages may follow and the scan controls
                         // will appear to flicker on and off
-                        if (self._captureSession.sensorMode == .ready) && (self._slamState.scannerState == .cubePlacement)
+                        if (captureSession.sensorMode == .ready) && (self._slamState.scannerState == .cubePlacement)
                         {
                             self.showScanControls()
                         }
@@ -701,7 +703,11 @@ class ScanViewController: UIViewController, STBackgroundTaskDelegate, ColorizeDe
             return
         }
         
-        let userInstructions = _captureSession.userInstructions
+        guard let captureSession = _captureSession else {
+            return
+        }
+        
+        let userInstructions = captureSession.userInstructions
         
         let needToConnectSensor = userInstructions.contains(.needToConnectSensor)
         let needToChargeSensor = userInstructions.contains(.needToChargeSensor)
@@ -718,7 +724,7 @@ class ScanViewController: UIViewController, STBackgroundTaskDelegate, ColorizeDe
             return;
         }
 
-        if (_captureSession.sensorMode == .wakingUp)
+        if (captureSession.sensorMode == .wakingUp)
         {
             showAppStatusMessage(_appStatus.sensorIsWakingUpMessage)
             return;
@@ -770,7 +776,7 @@ class ScanViewController: UIViewController, STBackgroundTaskDelegate, ColorizeDe
     {
         self.stopBatteryStatusTimer()
         
-        _captureSession.streamingEnabled = false
+        _captureSession?.streamingEnabled = false
 
         resetSLAM()
         clearSLAM()
@@ -779,7 +785,7 @@ class ScanViewController: UIViewController, STBackgroundTaskDelegate, ColorizeDe
             self.meshViewController = nil
         }
 
-        _captureSession.delegate = nil
+        _captureSession?.delegate = nil
         
         self.mesh = nil
                 
@@ -819,7 +825,7 @@ class ScanViewController: UIViewController, STBackgroundTaskDelegate, ColorizeDe
             _enhancedColorizeTask = nil
         }
         
-        self.meshViewController.hideMeshViewerMessage()
+        self.meshViewController?.hideMeshViewerMessage()
     }
 
     func meshViewDidRequestColorizing(_ mesh: STMesh, previewCompletionHandler: @escaping () -> Void, enhancedCompletionHandler: @escaping () -> Void) -> Bool {
@@ -834,7 +840,7 @@ class ScanViewController: UIViewController, STBackgroundTaskDelegate, ColorizeDe
         
         let handler = DispatchWorkItem { [weak self] in
             previewCompletionHandler()
-            self?.meshViewController.mesh = mesh
+            self?.meshViewController?.mesh = mesh
             self?.performEnhancedColorize(mesh, enhancedCompletionHandler: enhancedCompletionHandler)
         }
         
@@ -886,12 +892,12 @@ class ScanViewController: UIViewController, STBackgroundTaskDelegate, ColorizeDe
 
         if sender == _naiveColorizeTask {
             DispatchQueue.main.async(execute: {
-                self.meshViewController.showMeshViewerMessage(String.init(format: processingStringFormat, Int(progress*20)))
+                self.meshViewController?.showMeshViewerMessage(String.init(format: processingStringFormat, Int(progress*20)))
             })
         } else if sender == _enhancedColorizeTask {
 
             DispatchQueue.main.async(execute: {
-            self.meshViewController.showMeshViewerMessage(String.init(format: processingStringFormat, Int(progress*80)+20))
+            self.meshViewController?.showMeshViewerMessage(String.init(format: processingStringFormat, Int(progress*80)+20))
             })
         }
     }
@@ -900,7 +906,7 @@ class ScanViewController: UIViewController, STBackgroundTaskDelegate, ColorizeDe
 
         let handler = DispatchWorkItem { [weak self] in
             enhancedCompletionHandler()
-            self?.meshViewController.mesh = mesh
+            self?.meshViewController?.mesh = mesh
         }
         
         let colorizeCompletionHandler : (Error?) -> Void = { [weak self] error in
@@ -943,7 +949,7 @@ class ScanViewController: UIViewController, STBackgroundTaskDelegate, ColorizeDe
                 _enhancedColorizeTask = nil
 
                 // hide progress bar
-                self.meshViewController.hideMeshViewerMessage()
+                self.meshViewController?.hideMeshViewerMessage()
 
                 let alertCtrl = UIAlertController(
                     title: NSLocalizedString("MEMORY_LOW", comment: ""),
@@ -962,7 +968,7 @@ class ScanViewController: UIViewController, STBackgroundTaskDelegate, ColorizeDe
                 alertCtrl.addAction(okAction)
 
                 // show the alert in the meshViewController
-                self.meshViewController.present(alertCtrl, animated: true, completion: nil)
+                self.meshViewController?.present(alertCtrl, animated: true, completion: nil)
             }
 
         case .scanning:
@@ -1061,7 +1067,7 @@ class ScanViewController: UIViewController, STBackgroundTaskDelegate, ColorizeDe
             }
             _appStatus.statusMessageDisabled = false
             updateAppStatusMessage()
-            _captureSession.streamingEnabled = false
+            _captureSession?.streamingEnabled = false
             resetSLAM()
 
         default:

@@ -84,9 +84,12 @@ extension ScanViewController : STCaptureSessionDelegate {
         }
         else
         {
-            _captureSession.streamingEnabled = false;
+            _captureSession?.streamingEnabled = false;
         }
 
+        guard let captureSession = _captureSession else {
+            return
+        }
         
         var resolution = _dynamicOptions.highResColoring ?
             STCaptureSessionColorResolution.resolution2592x1936 :
@@ -110,19 +113,23 @@ extension ScanViewController : STCaptureSessionDelegate {
 
         
         // Set the lens detector off, and default lens state as "non-WVL" mode
-        _captureSession.lens = STLens.normal;
-        _captureSession.lensDetection = STLensDetectorState.off;
+        captureSession.lens = STLens.normal;
+        captureSession.lensDetection = STLensDetectorState.off;
 
         // Set ourself as the delegate to receive sensor data.
-        _captureSession.delegate = self;
+        captureSession.delegate = self;
         
-        _captureSession.startMonitoring(options: sensorConfig)
+        captureSession.startMonitoring(options: sensorConfig)
     }
     
     
     func isStructureConnected() -> Bool {
         
-        return _captureSession.sensorMode.rawValue > STCaptureSessionSensorMode.notConnected.rawValue;
+        guard let captureSession = _captureSession else {
+            return false
+        }
+        
+        return captureSession.sensorMode.rawValue > STCaptureSessionSensorMode.notConnected.rawValue;
     }
 
     // MARK: -  STCaptureSession delegate methods
@@ -178,7 +185,7 @@ extension ScanViewController : STCaptureSessionDelegate {
     func captureSession(_ captureSession: STCaptureSession!, didStart avCaptureSession: AVCaptureSession)
     {
         // Initialize our default video device properties once the AVCaptureSession has been started.
-        _captureSession.properties = STCaptureSessionPropertiesSetColorCameraAutoExposureISOAndWhiteBalance()
+        _captureSession?.properties = STCaptureSessionPropertiesSetColorCameraAutoExposureISOAndWhiteBalance()
     }
     
     func captureSession(_ captureSession: STCaptureSession!, didStop avCaptureSession: AVCaptureSession)
