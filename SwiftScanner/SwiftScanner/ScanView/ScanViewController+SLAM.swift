@@ -8,6 +8,7 @@
 //  Ported by Christopher Worley on 8/20/16.
 //
 //  Ported to Swift 5 by Windmolders Joris on 03/06/2020.
+//  - renamed to ScanViewController+SLAM.swift
 //  - Adapted to the latest version of the Scanner sample in the SDK
 //  - Using STCaptureSession iso STSensorController
 //  - Support distance label in the scan view
