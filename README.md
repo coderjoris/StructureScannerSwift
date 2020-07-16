@@ -18,6 +18,9 @@ Please note:
 - A **distance to target label** is shown in the scan view with a background color map that you can easily customize.
 - The UI is very basic with just text buttons instead of graphics, which you can easily customize.
 
+## Credits
+The swift code for scan capturing, frame processing and mesh rendering was provided by Christopher Worley in the RRStructureScanner project ([Swift 3](https://github.com/n6xej/StructureScannerSwift), [Swift 4](https://github.com/n6xej/RRStructureScannerSwift4), [Swift 5](https://github.com/n6xej/RRStructureScannerSwift5)). If you're looking for a port of the scanner sample app in the SDK, please refer to his solution.
+
 ## What can you do with this project?
 You can just build and use the project as is, or follow the guide below that demonstrates how to build your own app with a **custom user interface**, while just copying over the other files needed for capturing scans. All the bindings that you need between the custom UI and the copied code are explained.
 
