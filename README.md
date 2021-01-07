@@ -1,6 +1,6 @@
 # StructureScannerSwift
 ## Environment
-- Structure SDK 0.12
+- Structure SDK 1.0.1
 - XCode 11.4
 - Swift 5
 - iOS 13+
