@@ -27,6 +27,7 @@ extern NSString* const kSTCaptureSessionOptionUseAppleCoreMotionKey;
 extern NSString* const kSTCaptureSessionOptionToggleDepthSensorAutomaticallyKey;
 extern NSString* const kSTCaptureSessionOptionStartOCCAfterSecondsKey;
 extern NSString* const kSTCaptureSessionOptionSimulateRealtimePlaybackKey;
+extern NSString* const kSTCaptureSessionOptionUseARKitKey;
 
 // Dictionary keys for iOS colour camera modes.
 // Can be set via _captureSession.properties
@@ -300,6 +301,7 @@ typedef NS_ENUM(NSInteger, STCaptureSessionPreset)
     STCaptureSessionPresetOutdoor = 2,
     STCaptureSessionPresetRoomScanning = 3,
     STCaptureSessionPresetCloseRange = 4,
+    STCaptureSessionPresetHybridMode = 5,
 };
 
 /// Indicates the focus mode to be used by the iOS color camera.

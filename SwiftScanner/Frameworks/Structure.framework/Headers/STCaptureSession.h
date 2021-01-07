@@ -9,7 +9,7 @@
 #import <Structure/STCaptureSession+Types.h>
 #import <Structure/STSensorController+Types.h>
 #import <Structure/STOccFileWriter.h>
-
+#import <Structure/STMesh.h>
 
 #pragma mark - STCaptureSessionDelegate API
 
@@ -121,6 +121,9 @@ The sample types can be broken down as follows:
 
 These all correspond to the kSTCaptureSessionSampleEntryXXXKey key entries at the top of this file.
 
+When kSTCaptureSessionOptionUseARKitKey is set to @(ON), this delegate will receive iOS color frames from ARKit.
+The frame can be accessed by providing the kSTCaptureSessionSampleEntryIOSColorFrame key on received STCaptureSessionSampleTypeSynchronizedFrames events.
+
 @param captureSession The capture session object that signaled the delegate.
 @param sample An NSDictionary containing the sample objects (e.g. STDepthFrame, STColorFrame, etc) specified by the sample type.
 @param type The type of data sent from the capture session. See STCaptureSessionSampleType.
@@ -152,19 +155,41 @@ The status of the lens that can be sent to this delegate will be one of the foll
 */
 - (void)captureSession:(STCaptureSession *)captureSession onLensDetectorOutput:(STDetectedLensStatus)detectedLensStatus;
 
+/** Notify the delegate that the ARSession will be created.
+
+This callback can be used to cleanup certain views or scenes that were previously allocated after the ARSCNView was created.
+
+@param captureSession The capture session object that signaled the delegate.
+ */
+- (void)captureSessionWillCreateArSession:(STCaptureSession *)captureSession;
+
+/** Notify the delegate that the ARSession is just created.
+
+ This callback can be used to initialize certain views or scenes that need to be allocated in userspace with the allocated ARSCNView.
+@param captureSession The capture session object that signaled the delegate.
+@param arScnView The ARSCNView used to initialize the ARSession.
+ */
+- (void)captureSessionDidCreateArSession:(STCaptureSession *)captureSession
+                           withARSCNView:(ARSCNView*)arScnView API_AVAILABLE(ios(13.4));
+
 @end
 
 
 //------------------------------------------------------------------------------
 #pragma mark - STCaptureSession API
 
-/** The capture session is the central point that manages all interactions between the sensor, iOS color camera, and your application-specific delegate class.
+/** The capture session is the central point that manages all interactions between the Structure Sensor or Apple LiDAR, iOS color camera, and your application-specific delegate class.
 
 More than one instance of the capture session can be created, however only one
 instance can connect to the sensor at a given time, and iOS will restrict you
 from using more than one video device at a time.
 
+Using the Apple LiDAR with ARKit will not allow access to any connected Structure Sensor.
+
 Your custom delegate object can be registered using its delegate property.
+
+When using Apple ARKit, only the captureSessionDidOutputSample delegate will be called if the iOS color camera or CoreMotion is enabled.
+The respective `arSession` delegates will be called and allow for direct usage of the Apple ARKit API instead.
 
 See also:
 
@@ -214,6 +239,14 @@ Use it to register your application-specific STCaptureSessionDelegate delegate.
 Defaults to nil.
 */
 @property(nonatomic, assign) id<STCaptureSessionDelegate> delegate;
+
+/** The ARSessionDelegate allocated and bound to the ARSession internally.
+
+Use it to register your own ARSessionDelegate and receive raw ARKit delegate callbacks.
+
+Defaults to nil.
+*/
+@property(nonatomic, assign) id<ARSessionDelegate> arKitDelegate API_AVAILABLE(ios(13.4));
 
 /// @name Capture Session streaming
 
@@ -469,7 +502,7 @@ color camera frames at).
 - `kSTCaptureSessionOptionDepthSensorEnabledKey` :
   - Specifies whether we want to enable the depth stream from a Structure Sensor.
   - `BOOL` value, true if-and-only-if you want to stream depth from a Structure Sensor.
-  - Defaults to `@NO`.
+  - Defaults to `@YES`.
 - `kSTCaptureSessionOptionInfraredSensorEnabledKey` :
   - Specifies whether we want to enable the infrared stream from a Structure Sensor.
   - `BOOL` value, true if-and-only-if you want to stream infrared from a Structure Sensor.
@@ -516,7 +549,11 @@ color camera frames at).
   - e.g. Optimize for close-range depth when using the body-scanning preset, or optimize the sensor for mid-to-long range depth when using the room-scanning preset
   - `NSInteger` integral value specifying one of the `STCaptureSessionPreset` constants.
   - Defaults to the default preset.
-
+- `kSTCaptureSessionOptionUseARKitKey`
+  - Specifies whether we want to enable streaming and SLAM from Apple ARKit. Does not require a Structure Sensor to begin streaming.
+  - Requires `kSTCaptureSessionOptionDepthSensorEnabledKey` to be set to false.
+  - `BOOL` value, true if-and-only-if you wish to use Apple ARKit.
+  - Defaults to `@NO`.
 
 
 @param options A dictionary containing the sensor and device configuration for the capture session.
@@ -546,6 +583,13 @@ See also:
  - <[STCaptureSession calibrationType]>
 */
 - (STCalibrationType) calibrationTypeWithLens:(STLens)lens;
+
+/** Resets the state of ARKit initialized within, including both tracking and mapping and all captured data.
+
+Call this function when a reset on ARKit is required.
+
+*/
+- (void)resetARSession;
 
 @end
 

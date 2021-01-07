@@ -11,6 +11,9 @@
 
 #import <GLKit/GLKit.h>
 
+#if TARGET_OS_IPHONE
+#   import <ARKit/ARKit.h>
+#endif
 
 #pragma mark - STMesh Types
 
@@ -159,6 +162,15 @@ Sample usage:
 @param mesh The mesh from which to copy.
 */
 - (instancetype)initWithMesh:(STMesh *)mesh;
+
+/** Create an STMesh from an existing, populated ARSession.
+
+ @param session The ARSession to copy data from.
+ @param completionBlock Block function to return the retrieved and allocated mesh.
+ */
++ (void)meshFromARSession:(ARSession *)session
+          completionBlock:(void (^)(STMesh*))completionBlock
+          API_AVAILABLE(ios(13.4));
 
 /** Return an asynchronous task to create a decimated low-poly version of the given mesh with a maximal target number of faces.
 
